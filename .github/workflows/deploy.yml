@@ -1,5 +1,7 @@
 on: 
   push:
+    branches:
+      - deploy
     tags:
       - v*
 name: Deploy
@@ -20,4 +22,4 @@ jobs:
       - name: Configure Bintray
         run: npx jfrog bt config --user ${{ secrets.BT_USER }} --key ${{ secrets.BT_APIKEY }} --licenses MIT
       - name: Deploy to Bintray
-        run: ./build.sh --verbose --package $GITHUB_REPOSITORY
+        run: ./deploy.sh --verbose --package $GITHUB_REPOSITORY --vcs_url https://github.com/$GITHUB_REPOSITORY

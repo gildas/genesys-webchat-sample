@@ -19,6 +19,7 @@ BT_VERSION=
 BT_USER=
 BT_KEY=
 BT_LICENSES=MIT
+VCS_URL=
 # Defaults }}}
 
 # Read the local env file if any
@@ -98,6 +99,20 @@ function bt_package_info() {
   local status
 
   results=$(npx jfrog bt package-show ${org}/${repo}/${package} 2>&1)
+  status=$?
+  echo $results
+  return $status
+}
+
+function bt_package_create() {
+  local org=$1
+  local repo=$2
+  local package=$3
+  local vcs_url=$4
+  local results
+  local status
+
+  results=$(npx jfrog bt package-create --vcs-url "$vcs_url" ${org}/${repo}/${package} 2>&1)
   status=$?
   echo $results
   return $status
@@ -189,6 +204,8 @@ function usage() { # {{{2
   echo "   Use [value] for the Bintray API Key instead of the default stored in your configuration"
   echo " --user=name"
   echo "   Use [name] for the Bintray user instead of the default stored in your configuration"
+  echo " --vcs-url=url, --vcs_url=url"
+  echo "   Use [url] as the Version Control System URL when creating a new Bintray package"
   echo " --help, -h, -?  "
   echo "   Prints some help on the output."
   echo " --noop, --dry-run  "
@@ -235,6 +252,12 @@ function parse_args() { # {{{2
         shift 2
         continue
       ;;
+      --vcs-url|--vcs_url)
+        [[ -z $2 || ${2:0:1} == '-' ]] && die "Argument for option $1 is missing"
+        VCS_URL=$2
+        shift 2
+        continue
+      ;;
 
       # Standard options
       --force)
@@ -242,7 +265,6 @@ function parse_args() { # {{{2
         FORCE=1
         ;;
       -h|-\?|--help)
-       trace "Showing usage"
        usage
        exit 0
        ;;
@@ -252,15 +274,12 @@ function parse_args() { # {{{2
         ;;
      --quiet)
        VERBOSE=0
-       trace "Verbose level: $VERBOSE"
        ;;
      -v|--verbose)
        VERBOSE=$((VERBOSE + 1))
-       trace "Verbose level: $VERBOSE"
        ;;
      -y|--yes|--assumeyes|--assume_yes|--assume-yes) # All questions will get a "yes"  answer automatically
        ASSUMEYES=1
-       trace "All prompts will be answered \"yes\" automatically"
        ;;
      -?*) # Invalid options
        warn "Unknown option $1 will be ignored"
@@ -304,7 +323,7 @@ function main() {
 
   if ! bt_package_exists $BT_ORG $BT_REPO $BT_PACKAGE ; then
     warn "Package $BT_PACKAGE does not exist"
-    bt_package_create $BT_ORG $BT_REPO $BT_PACKAGE || die_on_error "Failed to create package ${BT_PACKAGE} on bintray.com"
+    bt_package_create $BT_ORG $BT_REPO $BT_PACKAGE $VCS_URL || die_on_error "Failed to create package ${BT_PACKAGE} on bintray.com"
   fi
 
   if ! bt_version_exists $BT_ORG $BT_REPO $BT_PACKAGE $BT_VERSION ; then
