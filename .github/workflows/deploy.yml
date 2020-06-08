@@ -1,5 +1,7 @@
 on: 
   push:
+    branches:
+      - deploy
     tags:
       - v*
 name: Deploy
