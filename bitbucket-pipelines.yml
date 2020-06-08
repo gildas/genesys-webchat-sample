@@ -10,4 +10,4 @@ pipelines:
             - npm install terser
             - npm install jfrog-cli-go
             - npx jfrog bt config --user $BT_USER --key $BT_APIKEY --licenses MIT
-            - ./deploy.sh --verbose --package $BITBUCKET_REPO_SLUG
+            - ./deploy.sh --verbose --package $BITBUCKET_REPO_SLUG --vcs_url https://bitbucket.org/$BITBUCKET_REPO_FULL_NAME
