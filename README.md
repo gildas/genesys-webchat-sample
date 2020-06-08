@@ -39,7 +39,7 @@ In the webpage (typically `index.html`), when adding GENESYS Widget, simply add 
 
 Several important notes:
 - It is better to load your javascript at the end of the `body` rather than the `head`, the page will display something faster,
-- **Always** load the widget configuration (here `/chat/widget-config.hs`) before the widget and its extensions,
+- **Always** load the widget configuration (here `/chat/widget-config.js`) before the widget and its extensions,
 - It is better also to load the widget extensions after the widget, especially if they depend on standard components of the widget.
 
 ## Version
@@ -83,7 +83,7 @@ To contribute to this repository, please check [CONTRIBUTE.md](CONTRIBUTE.md)
 
 If this repository is hosted on [bitbucket.org](https://bitbucket.org), please check  [bitbucket-pipelines.yml](bitbucket-pipelines.yml). Do not forget to set the secrets `BT_USER` and `BT_APIKEY` in the Settings.
 
-If this repository is hosted on [github.com](https://github.com), please check [.github/workflows/deploy.yml](.github/workflows/deploy.yml). Do not forget to set the secrets `BT_USER` and `BT_APIKEY` in the [Settings](https://github.com/gildas/genesys-webchat-sample/settings).
+If this repository is hosted on [github.com](https://github.com), please check [.github/workflows/deploy.yml](.github/workflows/deploy.yml). Do not forget to set the secrets `BT_USER` and `BT_APIKEY` in the [Settings](https://github.com/gildas/genesys-webchat-sample/settings/secrets).
 
 Basically, whenever the code is tagged with a version number, the code is deployed to [bintray.com](https://bintray.com) when that tag is pushed.
 
