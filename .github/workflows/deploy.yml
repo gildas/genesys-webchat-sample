@@ -1,0 +1,23 @@
+on: 
+  push:
+    tags:
+      - v*
+name: Deploy
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Install Node.js
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: '12'
+      - name: Checkout package
+        uses: actions/checkout@v2
+      - name: Install terser
+        run: npm install terser
+      - name: Install Bintray
+        run: npm install jfrog-cli-go
+      - name: Configure Bintray
+        run: npx jfrog bt config --user ${{ secrets.BT_USER }} --key ${{ secrets.BT_APIKEY }} --licenses MIT
+      - name: Deploy to Bintray
+        run: ./build.sh --verbose --package $GITHUB_REPOSITORY

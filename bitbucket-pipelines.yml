@@ -1,0 +1,13 @@
+image: node:10.15.3
+
+pipelines:
+  tags:
+    'v*':
+      - step:
+          name: Deploy to bintray
+          deployment: production
+          script:
+            - npm install terser
+            - npm install jfrog-cli-go
+            - npx jfrog bt config --user $BT_USER --key $BT_APIKEY --licenses MIT
+            - ./build.sh --verbose --package $BITBUCKET_REPO_SLUG
