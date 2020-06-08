@@ -103,6 +103,19 @@ function bt_package_info() {
   return $status
 }
 
+function bt_package_create() {
+  local org=$1
+  local repo=$2
+  local package=$3
+  local results
+  local status
+
+  results=$(npx jfrog bt package-create ${org}/${repo}/${package} 2>&1)
+  status=$?
+  echo $results
+  return $status
+}
+
 function bt_version_exists() {
   local org=$1
   local repo=$2

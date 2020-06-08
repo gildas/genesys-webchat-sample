@@ -22,4 +22,4 @@ jobs:
       - name: Configure Bintray
         run: npx jfrog bt config --user ${{ secrets.BT_USER }} --key ${{ secrets.BT_APIKEY }} --licenses MIT
       - name: Deploy to Bintray
-        run: ./build.sh --verbose --package $GITHUB_REPOSITORY
+        run: ./deploy.sh --verbose --package $GITHUB_REPOSITORY
