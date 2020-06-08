@@ -242,7 +242,6 @@ function parse_args() { # {{{2
         FORCE=1
         ;;
       -h|-\?|--help)
-       trace "Showing usage"
        usage
        exit 0
        ;;
@@ -252,15 +251,12 @@ function parse_args() { # {{{2
         ;;
      --quiet)
        VERBOSE=0
-       trace "Verbose level: $VERBOSE"
        ;;
      -v|--verbose)
        VERBOSE=$((VERBOSE + 1))
-       trace "Verbose level: $VERBOSE"
        ;;
      -y|--yes|--assumeyes|--assume_yes|--assume-yes) # All questions will get a "yes"  answer automatically
        ASSUMEYES=1
-       trace "All prompts will be answered \"yes\" automatically"
        ;;
      -?*) # Invalid options
        warn "Unknown option $1 will be ignored"
