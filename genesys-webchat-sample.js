@@ -15,7 +15,7 @@ window._genesys.widgets.extensions['Sample'] = function($, CXBus, Common) {
     // This version should be incremented every time a new release is deployed
     // @see https://semver.org for proper versioning
     // If you use git flow, a hook increments this automatically when you type `git flow release start`
-    var version = '1.0.0'
+    var version = '1.0.1'
 
     Log(`Version: ${version}`)
     return e.deferred.resolve(version)
