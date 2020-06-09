@@ -18,11 +18,11 @@ git flow release start v${VERSION}
 
 2. Finalize the code, typically this means update the version number in the source and the documentation:  
 ```
-sed -Ei "/var version =/s/[0-9]+\.[0-9]+\.[0-9]+/${VERSION}/" genesys-webchat-richmessage.js
+sed -Ei "/var version =/s/[0-9]+\.[0-9]+\.[0-9]+/${VERSION}/" genesys-webchat-sample.js
 ```  
   On MacOS:  
 ```
-sed -Ei "/var version =/s/[0-9]+\.[0-9]+\.[0-9]+/${VERSION}/" genesys-webchat-richmessage.js
+sed -Ei "/var version =/s/[0-9]+\.[0-9]+\.[0-9]+/${VERSION}/" genesys-webchat-sample.js
 ```  
   On Windows:  
 ```
