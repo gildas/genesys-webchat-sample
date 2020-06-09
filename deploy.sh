@@ -146,7 +146,7 @@ function bt_version_create() {
 #docker run docker.bintray.io/jfrog/jfrog-cli-go \
 #  jfrog bt version-create \
 #  --user $BT_USER --key $BT_KEY \
-#  genesys/widgets/genesys-webchat-uploader/1.2.3
+#  genesys/widgets/genesys-webchat-sample/1.2.3
 
 }
 
@@ -166,9 +166,9 @@ function bt_upload() {
 #docker run docker.bintray.io/jfrog/jfrog-cli-go \
 #  -v "${PWD}/tmp:/" \
 #  jfrog bt upload \
-#  /genesys-webchat-richmessage.min.js \
+#  /genesys-webchat-sample.min.js \
 #  --user $BT_USER --key $BT_KEY \
-#  genesys/widgets/genesys-webchat-uploader/1.2.3
+#  genesys/widgets/genesys-webchat-sample/1.2.3
 }
 
 function bt_version_publish() {
@@ -186,7 +186,7 @@ function bt_version_publish() {
 #docker run docker.bintray.io/jfrog/jfrog-cli-go \
 #  jfrog bt version-publish \
 #  --user $BT_USER --key $BT_KEY \
-#  genesys/widgets/genesys-webchat-uploader/1.2.3
+#  genesys/widgets/genesys-webchat-sample/1.2.3
 }
 
 function usage() { # {{{2

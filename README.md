@@ -21,16 +21,16 @@ In the webpage (typically `index.html`), when adding GENESYS Widget, simply add 
 </html>
 <head>
   <!-- {{{ Genesys Cloud -->
-    <link id="genesys-widget-uploader-styles" href="https://apps.mypurecloud.com/widgets/9.0/widgets.min.css">
+    <link id="genesys-widget-styles" href="https://apps.mypurecloud.com/widgets/9.0/widgets.min.css">
   <!-- Genesys Cloud }}} -->
 </head>
 <body>
   <p>The body of the web page</p>
 
   <!-- {{{ Genesys Cloud -->
-  <script id="widget-configuration"        src="/chat-widget-config.js""></script>
-  <script id="genesys-webchat-richmessage" src="https://dl.bintray.com/genesys/widgets/1.0.0/genesys-webchat-uploader.min.js"></script>
-  <script id="genesys-widget"              src="https://apps.mypurecloud.com/widgets/9.0/widgets.min.js"></script>
+  <script id="widget-configuration"   src="/chat-widget-config.js"></script>
+  <script id="genesys-webchat-sample" src="https://dl.bintray.com/genesys/widgets/1.0.0/genesys-webchat-sample.min.js"></script>
+  <script id="genesys-widget"         src="https://apps.mypurecloud.com/widgets/9.0/widgets.min.js"></script>
   <!-- Genesys Cloud }}} -->
 </body>
 </html>
