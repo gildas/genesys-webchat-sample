@@ -1,6 +1,6 @@
 # GENESYS Widget Extension: Sample
 
-[ ![Download](https://api.bintray.com/packages/genesys/widgets/genesys-webchat-sample/images/download.svg?version=1.0.1) ](https://bintray.com/genesys/widgets/genesys-webchat-sample/1.0.1/link)
+[ ![Download](https://api.bintray.com/packages/genesys/widgets/genesys-webchat-sample/images/download.svg?version=1.1.0) ](https://bintray.com/genesys/widgets/genesys-webchat-sample/1.1.0/link)
 
 ## Purpose
 
@@ -29,7 +29,7 @@ In the webpage (typically `index.html`), when adding GENESYS Widget, simply add 
 
   <!-- {{{ Genesys Cloud -->
   <script id="widget-configuration"   src="/chat-widget-config.js"></script>
-  <script id="genesys-webchat-sample" src="https://dl.bintray.com/genesys/widgets/1.0.1/genesys-webchat-sample.min.js"></script>
+  <script id="genesys-webchat-sample" src="https://dl.bintray.com/genesys/widgets/1.1.0/genesys-webchat-sample.min.js"></script>
   <script id="genesys-widget"         src="https://apps.mypurecloud.com/widgets/9.0/widgets.min.js"></script>
   <!-- Genesys Cloud }}} -->
 </body>
