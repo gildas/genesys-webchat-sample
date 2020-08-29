@@ -67,15 +67,16 @@ async function GetFortune() {
  * @param {Element} menu 
  */
 function AddFortuneMenuItem(menu) {
-  // cxMenuItem is the menu item (<li>) that contains the button
-  let cxMenuItem = document.createElement("li")
-  cxMenuItem.className = "cx-icon i18n"
-  cxMenuItem.setAttribute("tabindex", 0)
-  cxMenuItem.setAttribute("id", "fortune")
-  cxMenuItem.setAttribute("title", "Get a Fortune Cookie")
-  cxMenuItem.style.display = "block"
+  // cxFortune is the menu item content that contains the button
+  let cxFortune = document.createElement("li")
+  cxFortune.className = "cx-menu-item cx-icon i18n"
+  cxFortune.setAttribute("tabindex", 0)
+  cxFortune.setAttribute("id", "fortune")
+  cxFortune.setAttribute("title", "Get a Fortune Cookie")
+  cxFortune.setAttribute("role", "button")
+  cxFortune.style.display = "block"
   // This icon comes from https://www.svgrepo.com/svg/104981/crystal-ball
-  cxMenuItem.innerHTML = `
+  cxFortune.innerHTML = `
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" viewBox="0 0 297 297" style="enable-background:new 0 0 297 297;">
   <g>
   <path class="cx-svg-icon-tone1"
@@ -93,7 +94,7 @@ function AddFortuneMenuItem(menu) {
   </g>
 </svg>
 `
-  cxMenuItem.onclick = async function(event) {
+  cxFortune.onclick = async function(event) {
     try {
       let message = await GetFortune()
 
@@ -102,6 +103,11 @@ function AddFortuneMenuItem(menu) {
       console.error(err)
     }
   }
+
+  // cxMenuItem is the menu item that contains the button
+  let cxMenuItem = document.createElement("li")
+  cxMenuItem.setAttribute("role", "none")
+  cxMenuItem.appendChild(cxFortune)
 
   // Insert the button after the emoji button
   if (menu.childNodes.length > 2) {
